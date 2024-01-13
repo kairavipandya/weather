@@ -1,27 +1,40 @@
 <!--Weather.vue-->
-
+  
 <template>
-    <div class="weather-container">
-      <h2 class="weather-title">Weather for {{ cityName }}</h2>
-      <div class="weather-info">
-        <p class="temperature">Temperature: {{ temperature }}°C</p>
-        <p class="description">Weather: {{ weatherDescription }}</p>
-      </div>
+  <div class="weather-container">
+    <h2 class="weather-title">Weather for {{ cityName }}</h2>
+    <div class="weather-info">
+      <p class="temperature">Temperature: {{ temperature }}°C</p>
+      <p class="description">Weather: {{ weatherDescription }}</p>
     </div>
-  </template>
-  
-  <script>
-  export default {
-    name: 'WeatherReport',
-    props: {
-      cityName: String,
-      temperature: Number,
-      weatherDescription: String,
+    <div class="additional-info">
+      <p>Humidity: {{ additionalInfo.humidity }}%</p>
+      <p>Wind Speed: {{ additionalInfo.windSpeed }} km/h</p>
+      <p>Sunrise: {{ formatTime(additionalInfo.sunrise) }}</p>
+      <p>Sunset: {{ formatTime(additionalInfo.sunset) }}</p>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'WeatherReport',
+  props: {
+    cityName: String,
+    temperature: Number,
+    weatherDescription: String,
+    additionalInfo: Object,
+  },
+  methods: {
+    formatTime(timestamp) {
+      let date = new Date(timestamp * 1000);
+      return date.toLocaleTimeString();
     },
-  };
-  </script>
-  
-  <style scoped>
+  },
+};
+</script>
+
+<style scoped>
   .weather-container {
     background-color: #f4f4f4;
     border: 1px solid #ccc;
@@ -30,24 +43,29 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
-  
+
   .weather-title {
     font-size: 24px;
     color: #333;
     margin-bottom: 10px;
   }
-  
+
   .weather-info {
     font-size: 18px;
     color: #555;
   }
-  
+
   .temperature {
     margin: 5px 0;
   }
-  
+
   .description {
     margin: 5px 0;
   }
-  </style>
-  
+
+  .additional-info {
+    margin-top: 15px;
+    font-size: 16px;
+    color: #444;
+  }
+</style>
