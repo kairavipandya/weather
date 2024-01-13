@@ -35,37 +35,31 @@ export default {
 </script>
 
 <style scoped>
-  .weather-container {
-    background-color: #f4f4f4;
-    border: 1px solid #ccc;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    text-align: center;
-  }
+.weather-container {
+  width: 350px; /* Adjusted for a smaller size */
+  height: 420px; /* Adjusted for a smaller size */
+  margin: auto; /* Center the box */
+  border-radius: 10px;
+  background: #8698EF;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  color: #FFF;
+  font-family: 'Source Serif Pro';
+  font-size: 24px; /* Reduced for better readability */
+  font-weight: 600;
+  padding: 20px; /* Added padding for internal spacing */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  .weather-title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 10px;
-  }
+.weather-title {
+  margin-bottom: 15px;
+}
 
-  .weather-info {
-    font-size: 18px;
-    color: #555;
-  }
-
-  .temperature {
-    margin: 5px 0;
-  }
-
-  .description {
-    margin: 5px 0;
-  }
-
-  .additional-info {
-    margin-top: 15px;
-    font-size: 16px;
-    color: #444;
-  }
+.weather-info, .additional-info {
+  font-size: 20px; /* Reduced for better readability */
+  font-weight: 400;
+  margin-bottom: 10px; /* Added margin for spacing */
+}
 </style>

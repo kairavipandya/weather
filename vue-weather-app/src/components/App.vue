@@ -2,9 +2,13 @@
 
 <template>
   <div>
-    <input v-model="cityInput" placeholder="Enter City" @keyup.enter="fetchWeatherData">
-    <button @click="fetchWeatherData">Get Weather</button>
-    <button @click="toggleUnits">{{ unitLabel }}</button>
+    <input
+      v-model="cityInput"
+      placeholder="Search for a city..."
+      @keyup.enter="fetchWeatherData"
+      class="search-bar"
+    />
+    <button @click="toggleUnits" class="unit-switch">{{ unitLabel }}</button>
     <Weather
       :cityName="cityName"
       :temperature="temperature"
@@ -72,3 +76,34 @@ export default {
   },
 };
 </script>
+
+<style>
+.search-bar {
+  width: 600px;
+  height: 43px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  border: 1px solid #000;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  color: #000;
+  font-family: 'Source Serif Pro';
+  font-size: 24px;
+  background: #F5F5F5;
+  margin-bottom: 20px; /* Added spacing */
+  margin-right: 20px;
+
+}
+
+.unit-switch {
+  width: 164px;
+  height: 49px;
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: #8698EF;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.25);
+  color: #FFF;
+  font-family: 'Source Serif Pro';
+  font-size: 24px;
+  margin-bottom: 20px; /* Added spacing */
+}
+</style>
