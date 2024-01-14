@@ -2,6 +2,7 @@
   
 <template>
   <div class="weather-container">
+    <i :class="icon"></i>
     <h2 class="weather-title">Weather for {{ cityName }}</h2>
     <div class="weather-info">
       <p class="temperature">Temperature: {{ temperature }}°C</p>
@@ -24,6 +25,7 @@ export default {
     temperature: Number,
     weatherDescription: String,
     additionalInfo: Object,
+    icon: String
   },
   methods: {
     formatTime(timestamp) {
